@@ -10,7 +10,7 @@ pipeline {
 			steps
 			{
 				sh 'npm install'
-				sh 'npma run test'
+				sh 'npm run test'
 				echo 'Test'
 			}
 		}
