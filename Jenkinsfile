@@ -22,7 +22,7 @@ pipeline {
 			emailext attachLog: true,
                 		body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
               			recipientProviders: [developers(), requestor()],
-              			to: 'kamilpodwika@interia.pl',
+              			to: 'kamilpodwika123@gmail.com',
               			subject: "Success"
 		}			
 		failure
@@ -30,7 +30,7 @@ pipeline {
 			emailext attachLog: true,
                 		body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
                 		recipientProviders: [developers(), requestor()],
-                		to: 'kamilpodwika@interia.pl',
+                		to: 'kamilpodwika123@gmail.com',
                 		subject: "Failed"
 		}
 	}		
