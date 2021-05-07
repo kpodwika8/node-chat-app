@@ -47,7 +47,7 @@ pipeline {
 			{
 				always
 				{
-					echo 'Zakonczono budowanie'
+					echo 'Zakonczono testowanie'
 				}
 				success
 				{
