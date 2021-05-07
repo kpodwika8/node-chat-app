@@ -1,16 +1,22 @@
 pipeline {
 	agent any
 	
-	tools{nodejs "nodejs"}
-	
 	stages 
-	{				
-		stage('Test')
+	{	
+		stage('Build')
 		{
 			steps
 			{
 				sh 'npm install'
-				sh 'npm run test'
+				sh 'npm build'
+			}
+		}		
+		stage('Test')
+		{
+			steps
+			{
+				
+				sh 'npm test'
 				echo 'Test'
 			}
 		}
@@ -21,7 +27,6 @@ pipeline {
 		{
 			emailext attachLog: true,
                 		body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
-              			recipientProviders: [developers(), requestor()],
               			to: 'kamilpodwika123@gmail.com',
               			subject: "Success"
 		}			
@@ -29,7 +34,6 @@ pipeline {
 		{
 			emailext attachLog: true,
                 		body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
-                		recipientProviders: [developers(), requestor()],
                 		to: 'kamilpodwika123@gmail.com',
                 		subject: "Failed"
 		}
