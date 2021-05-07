@@ -41,27 +41,28 @@ pipeline {
 				sh 'npm test'
 				echo 'Test'			
 			}
-		}
+		
 			
-		post
-		{
-			always
+			post
 			{
-				echo 'Zakonczono budowanie'
-			}
-			success
-			{
-				emailext attachLog: true,
-               	 		body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
-              				to: 'kamilpodwika123@gmail.com',
-              				subject: "Success"
-			}			
-			failure
-			{
-				emailext attachLog: true,
-               	 		body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
-               	 		to: 'kamilpodwika123@gmail.com',
-               	 		subject: "Failed"
+				always
+				{
+					echo 'Zakonczono budowanie'
+				}
+				success
+				{
+					emailext attachLog: true,
+     	          	 		body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+     	         				to: 'kamilpodwika123@gmail.com',
+     	         				subject: "Success"
+				}			
+				failure
+				{
+					emailext attachLog: true,
+               	 			body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}",
+               	 			to: 'kamilpodwika123@gmail.com',
+               		 		subject: "Failed"
+				}
 			}
 		}
 	}		
