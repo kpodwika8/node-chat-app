@@ -47,7 +47,7 @@ pipeline {
 			{
 				always
 				{
-					echo 'Zakonczono testowanie'
+					echo 'Zakonczono testy'
 				}
 				success
 				{
@@ -64,6 +64,7 @@ pipeline {
                		 		subject: "Failed"
 				}
 			}
+			
 		}
 	}		
 }
