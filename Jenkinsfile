@@ -38,7 +38,7 @@ pipeline {
 		{
 			steps
 			{				
-				sh 'npma test'
+				sh 'npm test'
 				echo 'Test'			
 			}
 		
