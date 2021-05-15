@@ -12,6 +12,7 @@ pipeline {
 				echo 'Building'
 				sh 'npm install'
 			}
+			
 			post
 			{
 				always
